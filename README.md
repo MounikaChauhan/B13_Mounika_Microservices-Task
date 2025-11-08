@@ -1,68 +1,34 @@
-# Microservices-Task
 
-## Overview
-This document provides details on testing various services after running the `docker-compose` file. These services include User, Product, Order, and Gateway Services. Each service has its own endpoints for testing purposes.
+Steps for the completion of the task : 
 
----
+Step1 :
+As we have 3 services that need to run, we first need to create the Dockerfile in each of the respective folders
 
-## Services and Endpoints
+As shown in the below screenshot, I have created a Dockerfile in gateway-services and added the below commands
 
-### **User Service**
-- **Base URL:** `http://localhost:3000`
-- **Endpoints:**
-  - **List Users:**  
-    ```
-    curl http://localhost:3000/users
-    ```
-    Or open in your browser: [http://localhost:3000/users](http://localhost:3000/users)
+![alt text](B13_Mounika_Microservices-Task/images/image.png)
 
----
+FROM node:18-alpine -> this command says to pull the image node with the tag 18-apline (so it's a alpine with with node installed).
+WORKDIR /app        -> this command will set the working directory for the subsequent commands
+COPY package*.json ./ -> this will copy the respective folder package.json files to the app directory in the container
+RUN npm install --production -> this installs the required node modules defined in package.json file 
+COPY . .  -> copying the local files to the working directory path.
+EXPOSE 3000 -> defining the port for the running the application inside the container
+CMD ["node", "app.js"] -> command to run the application
 
-### **Product Service**
-- **Base URL:** `http://localhost:3001`
-- **Endpoints:**
-  - **List Products:**  
-    ```
-    curl http://localhost:3001/products
-    ```
-    Or open in your browser: [http://localhost:3001/products](http://localhost:3001/products)
+Step2:
 
----
+similarly create the dockerfile all the remaining services, with the given port 
 
-### **Order Service**
-- **Base URL:** `http://localhost:3002`
-- **Endpoints:**
-  - **List Orders:**  
-    ```
-    curl http://localhost:3002/orders
-    ```
-    Or open in your browser: [http://localhost:3002/orders](http://localhost:3002/orders)
+Step 3:
 
----
+Create the docker-compose.yml file 
+![alt text](B13_Mounika_Microservices-Task/images/image1.png)
 
-### **Gateway Service**
-- **Base URL:** `http://localhost:3003/api`
-- **Endpoints:**
-  - **Users:**  
-    ```
-    curl http://localhost:3003/api/users
-    ```
-  - **Products:**  
-    ```
-    curl http://localhost:3003/api/products
-    ```
-  - **Orders:**  
-    ```
-    curl http://localhost:3003/api/orders
-    ```
+In the docker-compose.yml file 
+we are defining the 4 services which are order, user, gateway and product services.
+and all of them are on same isolated network named "app-network"
 
----
 
-## Instructions
-1. Start all services using the `docker-compose` file:
-   ```
-   docker-compose up
-   ```
-2. Once the services are running, use the above endpoints to verify the functionality.
 
-Happy testing!
+
