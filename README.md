@@ -48,3 +48,19 @@ we can see the services are running now
 ![alt text](images/image5.png)
 
 
+Step 5: 
+Check the URLS are accessible:
+
+I have tried accessing the link http://localhost:3000/Users
+
+as my code in app.js for the user services says listen to the url http://localhost:3000/Users and return the content
+
+![alt text](images/image6.png)
+
+similar for the other urls 
+
+Products : ![alt text](images/image7.png)
+Orders : 
+![alt text](images/image8.png)
+
+
