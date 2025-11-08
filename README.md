@@ -6,7 +6,7 @@ As we have 3 services that need to run, we first need to create the Dockerfile i
 
 As shown in the below screenshot, I have created a Dockerfile in gateway-services and added the below commands
 
-![alt text](B13_Mounika_Microservices-Task/images/image.png)
+![alt text](images/image.png)
 
 FROM node:18-alpine -> this command says to pull the image node with the tag 18-apline (so it's a alpine with with node installed).
 WORKDIR /app        -> this command will set the working directory for the subsequent commands
@@ -23,7 +23,7 @@ similarly create the dockerfile all the remaining services, with the given port
 Step 3:
 
 Create the docker-compose.yml file 
-![alt text](B13_Mounika_Microservices-Task/images/image1.png)
+![alt text](images/image1.png)
 
 In the docker-compose.yml file 
 we are defining the 4 services which are order, user, gateway and product services.
