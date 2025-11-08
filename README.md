@@ -29,6 +29,22 @@ In the docker-compose.yml file
 we are defining the 4 services which are order, user, gateway and product services.
 and all of them are on same isolated network named "app-network"
 
+Step 4: 
 
+Run the docker command to run the containers
+
+build the images using the command: docker-compose build
+
+![alt text](images/image2.png)
+
+![alt text](images/image3.png)
+
+run the services using the command: docker-compose up
+
+![alt text](images/image4.png)
+
+we can see the services are running now 
+
+![alt text](images/image5.png)
 
 
